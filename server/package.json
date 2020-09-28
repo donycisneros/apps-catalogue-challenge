@@ -2,15 +2,35 @@
   "name": "apps-catalogue-challenge-server",
   "version": "1.0.0",
   "description": "Apps catalogue challenge server.",
-  "main": "index.js",
-  "author": "Dony Cisneros<dony.cisne@gmail.com>",
+  "author": {
+    "name": "Dony Cisneros",
+    "email": "dony.cisne@gmail.com",
+    "url": "https://www.donycisneros.com/"
+  },
   "license": "MIT",
   "scripts": {
-    "start": "node src/index.js"
+    "dev": "nodemon --exec babel-node src/index.js",
+    "build": "babel src --out-dir dist",
+    "restart": "rimraf dist && yarn build && yarn start",
+    "start": "node dist/index.js"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.11.5",
+    "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-standard": "^4.0.1",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.1.2",
+    "rimraf": "^3.0.2"
   }
 }
